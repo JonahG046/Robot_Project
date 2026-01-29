@@ -2,63 +2,48 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Link } from 'react-router-dom'
-
-function LoginForm() {
-  return(
-    <h1>
-      Hello World!
-    </h1>
-  )
-}
+import Button from './components/shared/Button'
 
 function App() {
-  
-
-
 
   return (
     <>
-    <div className='App'>
-      <h1>
-        Hello World!
-      </h1>
-    </div>
-    <div>
-      <a href="https://youtube.com" target="_blank">
-        <button>Go to YouTube</button>
-      </a>
-    </div>
-
-
-
-    <LoginForm />
-
-  </>
+      <Button height="50px" width="150px" padding="10px" />
+      <div className='App'>
+        <h1>
+          Hello World!!!!!!!!!!!
+        </h1>
+      </div>
+      <div>
+        <a href="https://youtube.com" target="_blank">
+          <button>Go to YouTube</button>
+        </a>
+      </div>
+    </>
   )
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 
 
 export default App
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   // const [count, setCount] = useState(0)
   // return (
   //   <>
@@ -86,7 +71,7 @@ export default App
   //       </button>
   //       </Link>
   //       <p>
-          
+
   //       </p>
   //     </div>
   //     <p className="read-the-docs">

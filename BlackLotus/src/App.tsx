@@ -1,14 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
 import './App.css'
 import Button from './components/shared/Button'
+import Grid from './components/shared/Grid'
+import Nav from './components/shared/Nav'
+
+
 
 function App() {
 
   return (
     <>
-      <Button height="50px" width="150px" padding="10px" />
+      <Nav />
+      <Button />
+      <Grid />
       <div className='App'>
         <h1>
           Hello World!!!!!!!!!!!

@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Nav />
-      <Button />
+      <Button text="hello world" /> 
       <Grid />
       <div className='App'>
         <h1>
@@ -19,9 +19,7 @@ function App() {
         </h1>
       </div>
       <div>
-        <a href="https://youtube.com" target="_blank">
-          <button>Go to YouTube</button>
-        </a>
+        
       </div>
     </>
   )

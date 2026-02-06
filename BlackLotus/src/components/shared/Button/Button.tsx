@@ -2,20 +2,27 @@ import "./Button.css"
 
 const Button = ({ ...props }) => {
   const {
-  //   height = "50px",
-  //   padding = "10px",
-  //   width = "150px",
-  //   background = "purple",
-  //   color = "white",
-     background,
-     //callback,
+    height = "50px",
+    padding = "10px",
+    width = "150px",
+    text,
+    textColor = 'white', 
+    background,
+    callback = () => {},
   } = props;
 
-  return <button 
-  className={
+  const clickHandler = () => {
+    console.log("button clicked")
+    callback("button clicked")
+  } 
+
+  return (
+    <button 
+    className={
     `primary-color 
     ${background} 
-    text-white 
+    text-${textColor} 
+
     bg-brand 
     box-border 
     border 
@@ -31,11 +38,13 @@ const Button = ({ ...props }) => {
     px-4 
     py-2.5 
     focus:outline-none`}
-  onClick={() => (console.log('hi'))}
-  >Click Me</button>;
+    onClick={clickHandler}
+    >{text}</button>
+  )
 }
 
 
 export default Button
 
 
+ 

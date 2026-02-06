@@ -4,9 +4,11 @@ import Input from "../../components/shared/Input"
 const CreateAuth = () => {
     return (
     <>
-        
-        <Button text="hello world" /> 
         <Input />
+        <Input />
+        <Input />
+        <Button text="hello world" /> 
+        
     </>
     )
 

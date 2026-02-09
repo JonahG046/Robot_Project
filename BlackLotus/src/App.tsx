@@ -3,6 +3,7 @@ import './App.css'
 import Button from './components/shared/Button'
 import Grid from './components/shared/Grid'
 import Nav from './components/shared/Nav'
+import Routes from "./Routes"
 
 
 
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
       <Nav />
-      <Button />
+      <Routes />
+     
       <Grid />
       <div className='App'>
         <h1>
@@ -19,9 +21,7 @@ function App() {
         </h1>
       </div>
       <div>
-        <a href="https://youtube.com" target="_blank">
-          <button>Go to YouTube</button>
-        </a>
+        
       </div>
     </>
   )

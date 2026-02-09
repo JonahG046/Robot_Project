@@ -14,14 +14,11 @@ function App() {
       <Nav />
       <Routes />
      
-      <Grid />
+      {/* <Grid /> */}
       <div className='App'>
-        <h1>
+        {/* <h1>
           Hello World!!!!!!!!!!!
-        </h1>
-      </div>
-      <div>
-        
+        </h1> */}
       </div>
     </>
   )

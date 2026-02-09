@@ -1,6 +1,7 @@
 {
   "name": "mnsu",
   "private": true,
+  "proxy":"http://localhost:5000/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,8 +11,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindscss": "^0.3.0",
     "wouter": "^3.9.0"
   },
   "devDependencies": {

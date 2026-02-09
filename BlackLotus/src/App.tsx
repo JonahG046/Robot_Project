@@ -1,14 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
+// import reactLogo from '/assets/react.svg'
+// import viteLogo from '/vite.svg'
+//import React, { useState, useEffect } from "react";
 import './App.css'
-import Button from './components/shared/Button'
+//import Button from './components/shared/Button'
+import Grid from "./components/shared/Grid";
+
 
 function App() {
 
+// Find a way to tell button where to go
+// Create containers for data
+// Create nav
+
   return (
     <>
-      <Button height="50px" width="150px" padding="10px" />
+    
+      <Grid />
       <div className='App'>
         <h1>
           Hello World!!!!!!!!!!!
@@ -19,29 +27,57 @@ function App() {
           <button>Go to YouTube</button>
         </a>
       </div>
+
+      <Grid />
     </>
   )
-
-
-
-
-
-
-
-
-
-
-
 
 
   }
 
 
-export default App
+// function App() {
+//     // usestate for setting a javascript
+//     // object for storing and using data
+//     const [data, setdata] = useState({
+//         id: 0,
+//         sender: "",
+//         recipient: "",
+//         message: "",
+//     });
 
+//     // Using useEffect for single rendering
+//     useEffect(() => {
+//         // Using fetch to fetch the api from 
+//         // flask server it will be redirected to proxy
+//         fetch("http://127.0.0.1:5000/messages").then((res) =>
+//             res.json().then((data) => {
+//                 // Setting a data from api
+//                 setdata({
+//                     id: data.id,
+//                     sender: data.sender,
+//                     recipient: data.recipient,
+//                     message: data.message,
+//                 });
+//             })
+//         );
+//     }, []);
 
+//     return (
+//         <div className="App">
+//             <header className="App-header">
+//                 <h1>React and flask</h1>
+//                 {/* Calling a data from setdata for showing */}
+//                 <p>{data.name}</p>
+//                 <p>{data.age}</p>
+//                 <p>{data.date}</p>
+//                 <p>{data.programming}</p>
 
-
+//             </header>
+//         </div>
+//     );
+// }
+// export default App
 
 
   // const [count, setCount] = useState(0)
@@ -80,3 +116,4 @@ export default App
   //   </>
   // )
 
+export default App

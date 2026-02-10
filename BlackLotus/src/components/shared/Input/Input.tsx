@@ -7,25 +7,25 @@ const Input = ({ ...props }) => {
         width = "100%",
         callback = () => {},
         isRequired,
-        id
-
-
+        id,
+        label,
     } = props;
     return (
-        <div>
-            <label 
-                htmlFor={id} 
+        <div className="flex flex-col items-start">
+            <label
+                htmlFor={id}
                 className="block mb-2.5 text-sm font-medium text-heading"
             >
-                First name
+                {label}
             </label>
 
-            <input 
-                type={type} 
-                id={id} 
-                className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" 
-                placeholder={placeholder} 
-                required 
+            <input
+                type={type}
+                id={id}
+                name={id}
+                className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                placeholder={placeholder}
+                required
             />
         </div>
     )

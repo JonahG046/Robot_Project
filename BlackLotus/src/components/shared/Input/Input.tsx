@@ -10,6 +10,7 @@ const Input = ({ ...props }) => {
         id,
         label,
     } = props;
+
     return (
         <div className="flex flex-col items-start">
             <label
@@ -23,7 +24,7 @@ const Input = ({ ...props }) => {
                 type={type}
                 id={id}
                 name={id}
-                className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-white border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
                 placeholder={placeholder}
                 required
             />

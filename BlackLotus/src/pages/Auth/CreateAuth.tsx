@@ -8,10 +8,10 @@ const CreateAuth = () => {
 
     return (
 
-        <div className="p-12 shadow-md rounded-[4%]">
+        <div className="p-12 shadow-md rounded-[4%] bg-violet-300">
             <form name="account"className="flex flex-col gap-4" onSubmit={submitHandler}>
                 <Input id="full-name" label="Full Name" placeholder="Jane Doe" />
-                <Input id="email-address" label="Email Address" placeholder="jane.doe@example.com" />
+                <Input id="email-address" label="Email Address" placeholder="jane.doe@mnsu.edu" type="email" />
                 <Input id="password" label="Password" type="password" />
                 <Button className="w-full" text="Create Account" type="submit" />
             </form>

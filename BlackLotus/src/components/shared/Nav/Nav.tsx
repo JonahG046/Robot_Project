@@ -1,5 +1,6 @@
 import "./Nav.css";
 import logo from "../../../assets/mnsu-logo.png";
+import RouteLink from "../RouteLink";
 
 
 const Nav = ({ }) => {
@@ -9,7 +10,8 @@ const Nav = ({ }) => {
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <div className="flex items-center space-x-3 rtl:space-x-reverse">
         <img src={logo} className="h-7" alt="MNSU logo" />
-        <span className="self-center text-xl text-heading font-semibold whitespace-nowrap">Robobite</span>
+        {/* <span className="self-center text-xl text-heading font-semibold whitespace-nowrap">Robobite</span> */}
+        <RouteLink text="Robobite" href="/home" />
     </div>
     <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
         <span className="sr-only">Open main menu</span>
@@ -18,22 +20,22 @@ const Nav = ({ }) => {
     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
         <li>
-          <a href="home" className="hover:opacity-60 block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</a>
+          <RouteLink text="Home" href="/home" />
         </li>
         <li>
-          <a href="about" className="hover:opacity-60 block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">About</a>
+          <RouteLink text="About" href="/about" />
         </li>
         <li>
-        <a href="current-jobs" className="hover:opacity-60 block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Current Jobs</a>
+          <RouteLink text="Current Jobs" href="/currrent-jobs" /> 
         </li>
         <li>
-          <a href="#" className="hover:opacity-60 block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Send Message</a>
+          <RouteLink text="Send Message" href="/send-message" />
         </li>
         <li>
-          <a href="#" className="hover:opacity-60 block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Login</a>
+          <RouteLink text="Login" href="/login" />
         </li>
         <li>
-          <a href="create-account" className="hover:opacity-60 block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Sign Up</a>
+          <RouteLink text="Create Account" href="/create-account" />
         </li>
       </ul>
     </div>

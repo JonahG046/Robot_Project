@@ -15,7 +15,7 @@ const Input = ({ ...props }) => {
         <div className="flex flex-col items-start">
             <label
                 htmlFor={id}
-                className="block mb-2.5 text-sm font-medium text-heading"
+                className="block mb-2.5 text-sm font-medium text-heading text-white"
             >
                 {label}
             </label>

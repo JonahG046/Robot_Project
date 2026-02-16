@@ -22,7 +22,6 @@ const Button = ({ ...props }) => {
     `primary-color 
     ${background} 
     text-${textColor} 
-
     bg-brand 
     box-border 
     border 

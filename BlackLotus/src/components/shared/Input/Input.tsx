@@ -1,4 +1,5 @@
 import "./Input.css"
+import { useForm } from 'react-hook-form'
 
 const Input = ({ ...props }) => {
     const {
@@ -9,7 +10,18 @@ const Input = ({ ...props }) => {
         isRequired,
         id,
         label,
+        required,
     } = props;
+
+    const {
+        register,
+        
+        // formState: { errors, isDirty, isSubmitting, isValid },
+      } = useForm({ mode: 'onChange' })
+
+      const handleChange = (data:any) => {
+        return callback(data)
+      } 
 
     return (
         <div className="flex flex-col items-start">
@@ -23,10 +35,10 @@ const Input = ({ ...props }) => {
             <input
                 type={type}
                 id={id}
-                name={id}
-                className="bg-white border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-violet-100 border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
                 placeholder={placeholder}
-                required
+                {...register(id,{required})}
+                onChange={handleChange}
             />
         </div>
     )

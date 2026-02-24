@@ -12,8 +12,7 @@ const Login = () => {
     }
 
     return (
-    <>
-        <body className="bg-violet-200" />
+    <div className="bg-violet-200">
         <h1 className="p-8">
             Sign into your account
         </h1>
@@ -30,7 +29,7 @@ const Login = () => {
             </form>
         </div>
 
-    </>
+    </div>
 
 
 

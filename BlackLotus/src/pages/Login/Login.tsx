@@ -1,15 +1,29 @@
 import Button from "../../components/shared/Button"
 import Input from "../../components/shared/Input"
 import RouteLink from "../../components/shared/RouteLink"
+import { useForm } from 'react-hook-form'
 
+const emailAddress = "emailAddress"
+const password = "password"
+const defaultValues = {emailAddress, password}
 const Login = () => {
+
+    const {
+        setValue,
+        getValues,
+        // formState: { errors, isDirty, isSubmitting, isValid },
+      } = useForm({ mode: 'onChange', defaultValues })
+
     const submitHandler = (event: any) => {
-        console.log("form submitted", event.target);
+        console.log("form submitted", getValues());
     }
 
     const inputHandler = (data:any) => {
-        return console.log("input", data)
+        return setValue(data.id, data.value)
     }
+
+    
+
 
     return (
     <div className="bg-violet-200">
@@ -19,11 +33,12 @@ const Login = () => {
 
         <div className="p-12 shadow-md rounded-[4%] bg-violet-400">
             <form name="account"className="flex flex-col gap-4" onSubmit={submitHandler}>
-                <Input id="email-address" label="Email Address" placeholder="jane.doe@mnsu.edu" type="email" callback={inputHandler} />
-                <Input id="password" label="Password" type="password" callback={inputHandler} />
-                <div className="w-1/2"/>
-                <div className="w-1/2 text-right">
-                    <RouteLink text="forgot password?" href="/home" />
+                <Input id={emailAddress} label="Email Address" placeholder="jane.doe@mnsu.edu" type="email" callback={inputHandler} />
+                <div className="flex-col flex ">
+                    <Input id={password} label="Password" type="password" callback={inputHandler} />
+                    <div className="text-right" style={{width:"100%"}}>
+                        <RouteLink text="forgot password?" href="/home" />
+                    </div>
                 </div>
                 <Button className="bg-violet-200 w-full" text="Log In" type="submit" />
             </form>

@@ -5,9 +5,7 @@ const Input = ({ ...props }) => {
     const {
         type = "text",
         placeholder,
-        width = "100%",
         callback = () => {},
-        isRequired,
         id,
         label,
         required,
@@ -20,8 +18,12 @@ const Input = ({ ...props }) => {
       } = useForm({ mode: 'onChange' })
 
       const handleChange = (data:any) => {
-        return callback(data)
+        return callback({
+            id,
+            value: data?.target?.value
+        })
       } 
+
 
     return (
         <div className="flex flex-col items-start">

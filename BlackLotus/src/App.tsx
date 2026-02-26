@@ -4,6 +4,8 @@ import Button from './components/shared/Button'
 import Grid from './components/shared/Grid'
 import Nav from './components/shared/Nav'
 import Routes from "./Routes"
+import { createContext } from 'react'
+import {AuthContext} from "./context/AuthContext"
 
 
 

@@ -1,17 +1,20 @@
 import "./RouteLink.css";
-import {Link} from "wouter"
+import {Link, useRoute} from "wouter"
 
 const RouteLink = ({...props}) => {
     const{
         text,
-        href,
+        href = "/",
         textColor = "white",
         activeColor = null,
+        navigateTo = null,
     } = props;
+    const [isActive] = useRoute(href);
+    const to = navigateTo ?? href;
 
 
     return (
-        <Link href={href} className={`hover:opacity-60 block py-2 px-3 text-${textColor} bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 ${!!activeColor ?"active":""}`} aria-current="page">{text}</Link>
+        <Link href={to} className={`hover:opacity-60 block py-2 px-3 text-${textColor} bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 ${isActive ?"active":""}`} aria-current="page">{text}</Link>
     )
 }
 

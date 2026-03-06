@@ -6,7 +6,7 @@ def connect():
     try:
         params = {
             'host': 'localhost',
-            'database': 'yourrobot_database',
+            'database': 'robot',
             'user': 'postgres',
             'password': '525015'
         }
@@ -41,3 +41,4 @@ def connect():
             conn.close()
             print("Database connection closed.")
 
+connect()

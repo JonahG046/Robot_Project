@@ -41,4 +41,3 @@ def connect():
             conn.close()
             print("Database connection closed.")
 
-connect()

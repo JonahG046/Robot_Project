@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from connection import connect
 
 app = FastAPI()
 
 # connect to database
+connection = connect()
 
 
 # Set-ExecutionPolicy RemoteSigned -Scope CurrentUser

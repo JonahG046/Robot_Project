@@ -5,7 +5,12 @@ app = FastAPI()
 
 # connect to database
 
-#learn how to return json data
+
+# Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+# .venv/Scripts/activate
+# cd backend -> api
+# fastapi dev main.py   
+
 
 @app.get("/")
 async def root():

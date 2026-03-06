@@ -1,3 +1,5 @@
+# I think we dont need this anymore
+
 from flask import Flask, render_template
 
 app = Flask(__name__)

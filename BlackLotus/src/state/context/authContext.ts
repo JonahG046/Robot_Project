@@ -5,4 +5,4 @@ interface AuthContextType {
   setCurrentUser: React.Dispatch<React.SetStateAction<any | null>>;
 }
 
-export const AuthContext = createContext<AuthContextType | null>({currentUser: null, setCurrentUser: () => {}});
+export const AuthContext = createContext<AuthContextType>({currentUser: null, setCurrentUser: () => {}});

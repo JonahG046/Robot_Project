@@ -8,7 +8,6 @@ useEffect(() => {
 const getapi = async () => {
     const response = await fetch("http://127.0.0.1:8000/", {
         method: "GET",
-        mode: "no-cors",
         headers: {
             "Content-Type": "application/json"
         }

@@ -7,7 +7,7 @@ help:
 	@echo ""
 	@echo "make setup      Install all dependencies (first time setup)"
 	@echo "make install    Install Python dependencies"
-	@echo "make run        Run development server (http://127.0.0.1:8000)"
+	@echo "make run        Run development server (http://127.0.0.1:5173)"
 	@echo "make debug      Run with debug logging enabled"
 	@echo "make prod       Run production server with multiple workers"
 	@echo "make test       Run pytest tests"

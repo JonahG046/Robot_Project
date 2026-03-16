@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from dbconnection import connect
+from routes import users  # Import the module
 
 app = FastAPI()
 
@@ -18,8 +20,12 @@ app.add_middleware(
 )
 
 # connect to database
+db_connection = connect()
 
 #learn how to return json data
+
+
+@app.include_router(users.router)  # Register it
 
 @app.get("/")
 async def root():

@@ -20,12 +20,10 @@ app.add_middleware(
 )
 
 # connect to database
-db_connection = connect()
+#db_connection = connect()
 
 #learn how to return json data
-
-
-@app.include_router(users.router)  # Register it
+app.include_router(users.router)  # Register it
 
 @app.get("/")
 async def root():

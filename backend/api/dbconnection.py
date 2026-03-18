@@ -6,14 +6,14 @@ load_dotenv()
 
 SECRET_PW = os.getenv("SECRET_PW")
 
-print(SECRET_PW)
+#print(SECRET_PW)
 
 def connect():
     try:
         params = {
             'host': 'localhost',
             'database': 'robot',
-            'user': 'postgres',
+            'user': 'krista',
             'password': SECRET_PW
         }
 
@@ -21,13 +21,13 @@ def connect():
 
         cursor = connection.cursor()
 
-        cursor.execute('SELECT * FROM users')
+    #     cursor.execute('SELECT * FROM robot_status')
 
         #db_version = cursor.fetchone()
 
-        my_user = cursor.fetchall()
+    #    my_user = cursor.fetchall()
         
-        print(my_user)
+    #    print(my_user)
 
         cursor.close()
 
@@ -41,9 +41,9 @@ def connect():
         connection.close()
         print("Database connection closed.")
 
-    if __name__ == "__main__":
-        conn = connect()
-        if conn:
-            conn.close()
-            print("Database connection closed.")
+if __name__ == "__main__":
+    conn = connect()
+    if conn:
+        conn.close()
+        print("Database connection closed.")
 

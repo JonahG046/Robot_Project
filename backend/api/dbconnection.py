@@ -19,17 +19,9 @@ def connect():
 
         connection = psycopg2.connect(**params)
 
-        cursor = connection.cursor()
+        # cursor = connection.cursor()
 
-        cursor.execute('SELECT * FROM users')
-
-        #db_version = cursor.fetchone()
-
-        my_user = cursor.fetchall()
-        
-        print(my_user)
-
-        cursor.close()
+        # cursor.close()
 
         return connection
     

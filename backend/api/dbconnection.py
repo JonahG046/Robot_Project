@@ -13,7 +13,7 @@ def connect():
         params = {
             'host': 'localhost',
             'database': 'robot',
-            'user': 'krista',
+            'user': 'postgres',
             'password': SECRET_PW
         }
 

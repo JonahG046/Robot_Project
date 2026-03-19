@@ -22,20 +22,20 @@ app.add_middleware(
 )
 
 # connect to database
-db_connection = connect()
-cursor = db_connection.cursor()
+# db_connection = connect()
+# cursor = db_connection.cursor()
 
-cursor.execute('SELECT * FROM users')
+# cursor.execute('SELECT * FROM users')
 
-db_version = cursor.fetchone()
+# db_version = cursor.fetchone()
 
-my_user = cursor.fetchall()
+# my_user = cursor.fetchall()
     
-print(my_user)
+# print(my_user)
 
-cursor.close()
+# cursor.close()
 #learn how to return json data
-app.include_router(main)  # Register it
+app.include_router(main.router)  # Register it
 
 @app.get("/")
 async def root():
@@ -44,41 +44,4 @@ async def root():
     response = JSONResponse(content=content, headers=headers)
 
     return response
-
-@app.get("/profile")
-async def getProfile():
-
-    #Pull name, email, location from database
-    db_connection = connect()
-    cursor = db_connection.cursor()
-
-    cursor.execute('SELECT * FROM users')
-
-    db_version = cursor.fetchone()
-
-    my_user = cursor.fetchall()
-        
-    print(my_user)
-
-    json_str = json.dumps(my_user)
-
-    cursor.close()
-
-    return json_str
-
-    # return {"name": "John Smith",
-    #         "email": "john.smith@mnsu.edu",
-    #         "location": "B152"}
-
-
-
-# @app.get("/account")
-# async def root():
-#     return {"name": "John Smith",
-#             "email": "john.smith@mnsu.edu",
-#             "location": "B152"}
-
-
-
-
 

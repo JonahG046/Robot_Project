@@ -1,34 +1,29 @@
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, DeclarativeBase
 import os
 from dotenv import load_dotenv
+
 
 load_dotenv()
 
 SECRET_PW = os.getenv("SECRET_PW")
 
 # 1. Define your Database URL
-# For SQLite (creates a file named 'sql_app.db' in your folder)
-SQLALCHEMY_DATABASE_URL = ""
-# postgresql+psycopg2://scott:tiger@localhost/mydatabase (reference to how db url should look)
+SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://postgres:{SECRET_PW}@localhost/robot"
 
 # 2. Create the Engine
-# 'check_same_thread' is only needed for SQLite!
 engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+    SQLALCHEMY_DATABASE_URL
 )
 
 # 3. Create the Session class
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # 4. Create a Base class for your models to inherit from
-Base = declarative_base()
+class Base(DeclarativeBase): 
+    pass
 
-# 1. Create your engine and session factory 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) 
-
-# 2. The Dependency 
+# 5. The Dependency 
 def get_db(): 
     db = SessionLocal() 
     try: 

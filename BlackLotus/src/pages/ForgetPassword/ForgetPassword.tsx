@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 const emailAddress = "emailAddress"
 const password = "password"
 const defaultValues = {emailAddress, password}
-const SendMessage = () => {
+const ForgetPassword = () => {
 
     const {
         setValue,
@@ -26,16 +26,18 @@ const SendMessage = () => {
 
 
     return (
+        
     <div className="bg-violet-200">
         <h1 className="p-8">
-            Send a Message
+            Enter your email to reset your password
         </h1>
 
+        
         <div className="p-12 shadow-md rounded-[4%] bg-violet-400">
-            <form name="message"className="flex flex-col gap-4" onSubmit={submitHandler}>
-                <Input id="destination" label="Destination" placeholder="Jane Doe" />
-                <Input id="message" label="Message" className="w-sm"/>
-                <Button className="bg-violet-200 w-full" text="Send" type="submit" />
+            <form name="password"className="flex flex-col gap-4" onSubmit={submitHandler}>
+                <Input id={emailAddress} label="Email Address" placeholder="jane.doe@mnsu.edu" type="email" callback={inputHandler} />
+
+                <Button className="bg-violet-200 w-full" text="Send Email" type="submit" />
             </form>
         </div>
 
@@ -48,4 +50,4 @@ const SendMessage = () => {
 
 
 }
-export default SendMessage
+export default ForgetPassword

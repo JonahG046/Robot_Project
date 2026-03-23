@@ -5,6 +5,7 @@ import About from "./pages/About"
 import CurrentJobs from "./pages/CurrentJobs"
 import Login from "./pages/Login"
 import SendMessage from "./pages/SendMessage"
+import ForgetPassword from "./pages/ForgetPassword"
 
 const Routes = () => {
     return (
@@ -16,6 +17,7 @@ const Routes = () => {
                 <Route path="/Current-jobs" component={CurrentJobs}/>
                 <Route path="/Login" component={Login}/>
                 <Route path="/Send-Message" component={SendMessage}/>
+                <Route path="/Forget-Password" component={ForgetPassword}/>
             </Switch>
         </Router>
 

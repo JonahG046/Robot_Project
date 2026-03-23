@@ -14,7 +14,7 @@ const RouteLink = ({...props}) => {
 
 
     return (
-        <Link href={to} className={`hover:opacity-60 block py-2 px-3 text-${textColor} bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 ${isActive ?"active":""}`} aria-current="page">{text}</Link>
+        <Link href={to} className={`hover:opacity-60 block py-2 px-3 text-${textColor} bg-brand rounded md:bg-transparent font-bold md:text-fg-brand md:p-0 ${isActive ?"active":""}`} aria-current="page">{text}</Link>
     )
 }
 

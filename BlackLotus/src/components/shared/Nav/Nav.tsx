@@ -35,7 +35,7 @@ const Nav = ({ }) => {
           <RouteLink text="Current Jobs" href="/currrent-jobs" /> 
         </li>
         
-        {!!currentUser
+        {!currentUser
           ?(
           <>
             <li>

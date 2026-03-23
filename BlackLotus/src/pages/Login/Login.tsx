@@ -2,7 +2,6 @@ import Button from "../../components/shared/Button"
 import Input from "../../components/shared/Input"
 import RouteLink from "../../components/shared/RouteLink"
 import { useForm } from 'react-hook-form'
-import ApiTest from "../../components/containers/ApiTest"
 
 const emailAddress = "emailAddress"
 const password = "password"
@@ -28,7 +27,6 @@ const Login = () => {
 
     return (
     <div className="bg-violet-200">
-        <ApiTest />
         <h1 className="p-8">
             Sign into your account
         </h1>
@@ -39,7 +37,7 @@ const Login = () => {
                 <div className="flex-col flex ">
                     <Input id={password} label="Password" type="password" callback={inputHandler} />
                     <div className="text-right" style={{width:"100%"}}>
-                        <RouteLink text="forgot password?" href="/home" />
+                        <RouteLink text="forgot password?" href="/Forget-Password" />
                     </div>
                 </div>
                 <Button className="bg-violet-200 w-full" text="Log In" type="submit" />

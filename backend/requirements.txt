@@ -13,3 +13,5 @@ gunicorn
 flake8
 pytest
 black
+pytest-asyncio
+httpx

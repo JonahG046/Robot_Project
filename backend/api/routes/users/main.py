@@ -1,33 +1,41 @@
 from fastapi import APIRouter, Depends
-from ...dependencies.database import get_db
+from ...dependencies.database.database import get_db
+from ...dependencies.database.dbSchemas import Users
 from sqlalchemy.orm import Session
 from sqlalchemy import select
+from pydantic import BaseModel
+
+# Define a Pydantic model for the user response since the ORM model cannot be directly serialized to JSON
+class UserResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+    location: str
+
+    class Config:
+        from_attributes = True
+
+
 router = APIRouter()
- 
-@router.get("/users")
+
+# This one needs work. I don't think I implemented it correctly.
+@router.get("/user/{user_id}", response_model=list[UserResponse])
+async def read_user(user_id: int, db: Session = Depends(get_db)):
+    query = select(Users).where(Users.id == user_id)
+    result = db.execute(query).fetchone()
+
+    if not result:
+        return {"message": "User not found"}
+
+    return {"message": f"Hello World, User ID: {result.id}, Name: {result.name}"}
+
+
+@router.get("/users", response_model=list[UserResponse])
 async def get_users(db: Session = Depends(get_db)):
+    print("Getting users from database...")
 
-    #Pull name, email, location from database
-    # db_connection = connect()
-    # cursor = db_connection.cursor()
+    query = select(Users)
+    result = db.execute(query)
+    users = result.scalars().all()
 
-    # cursor.execute('SELECT * FROM users')
-
-    # db_version = cursor.fetchone()
-
-    # my_user = cursor.fetchall()
-    query = select(Users)    
-    my_user = db.execute(query) 
-    print(my_user)
-
-    # json_str = json.dumps(my_user)
-
-    # cursor.close()
-
-    # return json_str
-
-    # content = {"message": "Hello World"}
-    # headers = {"X-Web-Framework": "FastAPI", "Content-Language": "en-US", "Content-Type": "application/json"}
-    # response = JSONResponse(content=content, headers=headers)
-
-    # return response
+    return users

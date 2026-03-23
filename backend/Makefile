@@ -19,8 +19,8 @@ help:
 setup:
 	@echo "🛠️  FastAPI Project Setup"
 	@python --version
+	@python -m venv .venv
 	@pip install -r requirements.txt
-	@pip install pytest pytest-asyncio httpx flake8 black
 	@echo "✅ Setup complete!"
 
 install:

@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from .dbconnection import connect
 from .routes.users import main  # Import the module
-import json
+from .dependencies.database.dbSchemas import create_tables
 
 
 app = FastAPI()
@@ -21,20 +20,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# connect to database
-# db_connection = connect()
-# cursor = db_connection.cursor()
+# Create tables at startup (Engine is singleton and will be initialized on first call)
+create_tables()
 
-# cursor.execute('SELECT * FROM users')
-
-# db_version = cursor.fetchone()
-
-# my_user = cursor.fetchall()
-    
-# print(my_user)
-
-# cursor.close()
-#learn how to return json data
+# Learn how to return json data
 app.include_router(main.router)  # Register it
 
 @app.get("/")

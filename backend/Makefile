@@ -7,7 +7,7 @@ help:
 	@echo ""
 	@echo "make setup      Install all dependencies (first time setup)"
 	@echo "make install    Install Python dependencies"
-	@echo "make run        Run development server (http://127.0.0.1:8000)"
+	@echo "make run        Run development server (http://127.0.0.1:5173)"
 	@echo "make debug      Run with debug logging enabled"
 	@echo "make prod       Run production server with multiple workers"
 	@echo "make test       Run pytest tests"
@@ -19,8 +19,8 @@ help:
 setup:
 	@echo "🛠️  FastAPI Project Setup"
 	@python --version
+	@python -m venv .venv
 	@pip install -r requirements.txt
-	@pip install pytest pytest-asyncio httpx flake8 black
 	@echo "✅ Setup complete!"
 
 install:

@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from .routes.users import main  # Import the module
+from .dependencies.database.dbSchemas import create_tables
+
 
 app = FastAPI()
 
@@ -17,9 +20,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# connect to database
+# Create tables at startup (Engine is singleton and will be initialized on first call)
+create_tables()
 
-#learn how to return json data
+# Learn how to return json data
+app.include_router(main.router)  # Register it
 
 @app.get("/")
 async def root():
@@ -28,24 +33,4 @@ async def root():
     response = JSONResponse(content=content, headers=headers)
 
     return response
-
-# @app.get("/profile")
-# async def root():
-
-#     #Pull name, email, location from database
-
-
-#     return {"name": "John Smith",
-#             "email": "john.smith@mnsu.edu",
-#             "location": "B152"}
-
-# @app.get("/account")
-# async def root():
-#     return {"name": "John Smith",
-#             "email": "john.smith@mnsu.edu",
-#             "location": "B152"}
-
-
-
-
 

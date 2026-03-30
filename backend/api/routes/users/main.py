@@ -15,6 +15,11 @@ class UserResponse(BaseModel):
     class Config:
         from_attributes = True
 
+class UserCreate(BaseModel):
+    name: str
+    email: str
+    location: str
+
 
 router = APIRouter()
 
@@ -27,7 +32,7 @@ async def read_user(user_id: int, db: Session = Depends(get_db)):
     if not result:
         return {"message": "User not found"}
 
-    return {"message": f"Hello World, User ID: {result.id}, Name: {result.name}"}
+    return {"message": f"User ID: {result.id}, Name: {result.name}"}
 
 
 @router.get("/users", response_model=list[UserResponse])
@@ -39,3 +44,20 @@ async def get_users(db: Session = Depends(get_db)):
     users = result.scalars().all()
 
     return users
+
+
+@router.post("/users", response_model=UserResponse)
+async def create_user(user: UserCreate, db: Session = Depends(get_db)):
+    # Create a new ORM user instance
+    new_user = Users(
+        name=user.name,
+        email=user.email,
+        location=user.location
+    )
+
+    # Add to the session and commit
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)  # refresh to get the generated id
+
+    return new_user

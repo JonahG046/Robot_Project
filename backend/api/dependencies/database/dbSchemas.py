@@ -15,6 +15,19 @@ class Users(Base):
     email = Column(String, unique=True, index=True)
     location = Column(String)
 
+class Robot(Base):
+    __tablename__ = "robot_status"
+
+#  NEED TO COMPLETE WITH ALL COLUMNS
+# INSERT INTO public.robot_status(
+# 	robot_id, robot_name, status, , last_seen_at, current_location_id, active_request_id, error_code, error_message, created_at, updated_at)
+# 	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+    id = Column(Integer, primary_key=True, index=True)
+    robot_name = Column(String)
+    status = Column(String)
+    battery_percent = Column(Integer)
+
 # 3. Create tables
 def create_tables():
     # Create all database tables at startup.

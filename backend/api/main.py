@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from .routes.users import main  # Import the module
+from .routes.robot import main  # Import the robot module
 from .dependencies.database.dbSchemas import create_tables
 
 

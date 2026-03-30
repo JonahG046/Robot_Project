@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from ...dependencies.database.database import get_db
 from ...dependencies.database.dbSchemas import Users
 from sqlalchemy.orm import Session
@@ -30,7 +30,7 @@ async def read_user(user_id: int, db: Session = Depends(get_db)):
     result = db.execute(query).fetchone()
 
     if not result:
-        return {"message": "User not found"}
+        raise HTTPException(status_code=404, detail="User not found")
 
     return {"message": f"User ID: {result.id}, Name: {result.name}"}
 
@@ -48,16 +48,22 @@ async def get_users(db: Session = Depends(get_db)):
 
 @router.post("/users", response_model=UserResponse)
 async def create_user(user: UserCreate, db: Session = Depends(get_db)):
-    # Create a new ORM user instance
+    # Check if a user with this email already exists
+    query = select(Users).where(Users.email == user.email)
+    existing_user = db.execute(query).scalar_one_or_none()
+
+    if existing_user:
+        # Raise an HTTP 400 error if the user already exists
+        raise HTTPException(status_code=400, detail="User with this email already exists")
+
+    # If not, create the new user
     new_user = Users(
         name=user.name,
         email=user.email,
         location=user.location
     )
-
-    # Add to the session and commit
     db.add(new_user)
     db.commit()
-    db.refresh(new_user)  # refresh to get the generated id
+    db.refresh(new_user)  # refresh to get the auto-generated id
 
     return new_user

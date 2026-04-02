@@ -7,8 +7,8 @@ from pydantic import BaseModel
 
 # Define a Pydantic model for the user response since the ORM model cannot be directly serialized to JSON
 class RobotResponse(BaseModel):
-    
-    robot_id: int
+
+    id: int
     robot_name: str
     status: str
     battery_percent: int

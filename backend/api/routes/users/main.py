@@ -19,7 +19,7 @@ class UserResponse(BaseModel):
 router = APIRouter()
 
 # This one needs work. I don't think I implemented it correctly.
-@router.get("/users/{user_id}", response_model=list[UserResponse])
+@router.get("/users/{user_id}", response_model=UserResponse)
 async def read_user(user_id: int, db: Session = Depends(get_db)):
     query = select(Users).where(Users.id == user_id)
     result = db.execute(query).fetchone()
@@ -41,7 +41,7 @@ async def get_users(db: Session = Depends(get_db)):
     return users
 
 # Define a POST route for creating a new user
-@router.post('/users', response_model=UserResponse) 
+@router.post('/users', response_model=UserResponse)
 async def post_user(payload: dict = Body(), db: Session = Depends(get_db)):
 
 
@@ -61,7 +61,7 @@ async def post_user(payload: dict = Body(), db: Session = Depends(get_db)):
 
 
 #   // Access submitted data using req.body (requires middleware like express.json())
-#   const newUser = req.body; 
+#   const newUser = req.body;
 #   console.log('Received new user data:', newUser);
   # Logic to save the user to a database would go here
 
@@ -69,4 +69,4 @@ async def post_user(payload: dict = Body(), db: Session = Depends(get_db)):
   #res.send('User created successfully with data: ' + JSON.stringify(newUser));
 
 
-    return True
+    # return True

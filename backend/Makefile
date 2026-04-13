@@ -95,7 +95,7 @@ help-db:
 	@echo ""
 	
 start-db:
-	docker compose up -d
+	docker compose up
 
 end-db:
 	docker compose down

@@ -22,7 +22,7 @@ app.add_middleware(
 )
 
 # Create tables at startup (Engine is singleton and will be initialized on first call)
-create_tables()
+# create_tables()
 
 # Learn how to return json data
 app.include_router(main.router)  # Register it

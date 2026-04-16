@@ -19,15 +19,15 @@ class UserResponse(BaseModel):
 router = APIRouter()
 
 # This one needs work. I don't think I implemented it correctly.
-@router.get("/users/{user_id}", response_model=UserResponse)
-async def read_user(user_id: int, db: Session = Depends(get_db)):
-    query = select(Users).where(Users.id == user_id)
-    result = db.execute(query).fetchone()
+# @router.get("/users/{user_id}", response_model=UserResponse)
+# async def read_user(user_id: int, db: Session = Depends(get_db)):
+#     query = select(Users).where(Users.id == user_id)
+#     result = db.execute(query).fetchone()
 
-    if not result:
-        return {"message": "User not found"}
+#     if not result:
+#         return {"message": "User not found"}
 
-    return {"message": f"Hello World, User ID: {result.id}, Name: {result.name}"}
+#     return {"message": f"Hello World, User ID: {result.id}, Name: {result.name}"}
 
 
 @router.get("/users", response_model=list[UserResponse])
@@ -41,18 +41,18 @@ async def get_users(db: Session = Depends(get_db)):
     return users
 
 # Define a POST route for creating a new user
-@router.post('/users', response_model=UserResponse)
-async def post_user(payload: dict = Body(), db: Session = Depends(get_db)):
+# @router.post('/users', response_model=UserResponse)
+# async def post_user(payload: dict = Body(), db: Session = Depends(get_db)):
 
 
-# Create query to check if user already exists
-    query = select(Users).where(Users.email == payload.email)
-    existinguser = db.execute(query).scalar_one_or_none()
+# # Create query to check if user already exists
+#     query = select(Users).where(Users.email == payload.email)
+#     existinguser = db.execute(query).scalar_one_or_none()
 
-    if existinguser == 1:
-        return True
-    else:
-        return False
+#     if existinguser == 1:
+#         return True
+#     else:
+#         return False
         #create user
 
 # If user does not exist, create user

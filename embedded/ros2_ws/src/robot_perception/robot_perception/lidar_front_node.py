@@ -15,10 +15,10 @@ class LidarFrontNode(Node):
         )
         self.front_distance_pub = self.create_publisher(
             Float32,
-            '/front_distance',
+            '/lidar_front_distance',
             10)
         
-        self.get_logger().info('Lidar Processing Node has been started. Listening on /scan topic.')
+        self.get_logger().info('Lidar Front Node has been started. Listening on /scan topic.')
 
     def scan_callback(self, msg: LaserScan) -> None:
         ranges = msg.ranges

@@ -6,7 +6,7 @@ from std_msgs.msg import Float32
 
 class LidarFrontNode(Node):
     def __init__(self):
-        super().__init__('lidarf_front_node')
+        super().__init__('lidar_front_node')
         self.scan_sub = self.create_subscription(
             LaserScan,
             '/scan',

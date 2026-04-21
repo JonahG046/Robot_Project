@@ -15,8 +15,8 @@ setup(
     zip_safe=True,
     maintainer='seprogram',
     maintainer_email='jonah.green@mnsu.edu',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='ROS 2 package for robot perception including LiDAR processing nodes',
+    license='Apache-2.0',
     extras_require={
         'test': [
             'pytest',

@@ -75,7 +75,7 @@ git clone https://github.com/slgrobotics/ldlidar_sl_ros2.git
 ## 🏗️ 7. Build Workspace
 
 ```bash
-cd ~/ros2_ws
+cd ~/robo_project/Robot_Project/embedded/ros2_ws
 colcon build
 ```
 
@@ -84,13 +84,13 @@ colcon build
 ## 🔁 8. Source Workspace
 
 ```bash
-source ~/ros2_ws/install/setup.bash
+source ~/robo_project/Robot_Project/embedded/ros2_ws/install/setup.bash
 ```
 
 (Optional: auto-source every terminal)
 
 ```bash
-echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+echo "source ~/robo_project/Robot_Project/embedded/ros2_ws/install/setup.bash" >> ~/.bashrc
 ```
 
 ---
@@ -133,7 +133,7 @@ Open a new terminal:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
-source ~/ros2_ws/install/setup.bash
+source ~/robo_project/Robot_Project/embedded/ros2_ws/install/setup.bash
 rviz2
 ```
 

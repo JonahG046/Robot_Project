@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'lidar_front_node = robot_perception.lidar_front_node:main',
         ],
     },
 )

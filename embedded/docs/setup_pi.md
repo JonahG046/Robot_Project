@@ -55,8 +55,9 @@ sudo apt install -y python3-colcon-common-extensions python3-pip git
 ## 📁 5. Create Workspace
 
 ```bash
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
+cd ~/robo_project/Robot_Project/embedded
+mkdir -p ros2_ws/src
+cd ros2_ws/src
 ```
 
 ---

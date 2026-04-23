@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import select
 from pydantic import BaseModel
 
+
 # Define a Pydantic model for the user response since the ORM model cannot be directly serialized to JSON
 class UserResponse(BaseModel):
     id: int
@@ -33,13 +34,15 @@ router = APIRouter()
 @router.get("/users", response_model=list[UserResponse])
 async def get_users(db: Session = Depends(get_db)):
     print("Getting users from database...")
-
     query = select(Users)
     result = db.execute(query)
     users = result.scalars().all()
-
+    
+    # scalers.all returns JSON
     return users
+    
 
+   
 # Define a POST route for creating a new user
 # @router.post('/users', response_model=UserResponse)
 # async def post_user(payload: dict = Body(), db: Session = Depends(get_db)):

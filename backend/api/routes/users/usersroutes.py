@@ -6,6 +6,7 @@ from sqlalchemy import select
 from pydantic import BaseModel
 
 
+
 # Define a Pydantic model for the user response since the ORM model cannot be directly serialized to JSON
 class UserResponse(BaseModel):
     id: int
@@ -20,15 +21,17 @@ class UserResponse(BaseModel):
 router = APIRouter()
 
 # This one needs work. I don't think I implemented it correctly.
-# @router.get("/users/{user_id}", response_model=UserResponse)
-# async def read_user(user_id: int, db: Session = Depends(get_db)):
-#     query = select(Users).where(Users.id == user_id)
-#     result = db.execute(query).fetchone()
+@router.get("/users/{user_id}", response_model=UserResponse)
+async def read_user(user_id: int, db: Session = Depends(get_db)):
+    query = select(Users).where(Users.id == user_id)
+    result = db.execute(query).one()
+    user = UserResponse.model_validate(result).model_dump()
+    
+    print(user)
+    if not result:
+        return {"message": "User not found"}
 
-#     if not result:
-#         return {"message": "User not found"}
-
-#     return {"message": f"Hello World, User ID: {result.id}, Name: {result.name}"}
+    return {"message": f"Hello World, User ID: {user.id}, Name: {user.name}"}
 
 
 @router.get("/users", response_model=list[UserResponse])

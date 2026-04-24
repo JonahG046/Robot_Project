@@ -1,4 +1,4 @@
-.PHONY: help setup install run debug prod test lint format clean
+.PHONY: help setup install run debug prod test lint format clean help-db start-db end-db
 
 # Default target
 help:
@@ -84,3 +84,19 @@ clean:
 	@find . -type f -name "*.pyc" -delete
 	@find . -type f -name "*.pyo" -delete
 	@echo "✅ Clean complete!"
+
+# Default target
+help-db:
+	@echo "Docker Commands"
+	@echo "============================"
+	@echo ""
+	@echo "make run        Run the container"
+	@echo "make end        Stop the container"
+	@echo ""
+	
+start-db:
+	docker compose up
+
+end-db:
+	docker compose down
+ 

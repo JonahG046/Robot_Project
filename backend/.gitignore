@@ -30,6 +30,9 @@ dist-ssr
 **.env
 .db.env
 .env.*
-**/.env.*
-**.env.*
-.db.env
+**/.venv*
+**.venv*
+*.venv
+.venv
+.venv/
+**/*.cpython-*

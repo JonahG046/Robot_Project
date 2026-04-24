@@ -9,7 +9,6 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 # 1. Define your Database URL
 SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://postgres:{SECRET_PW}{DATABASE_URL}"
-
 # 2. Singleton Engine class - ensures only one engine instance exists
 class Engine:
     _instance = None

@@ -6,10 +6,11 @@ useEffect(() => {
 
 
 const getapi = async () => {
-    const response = await fetch("http://127.0.0.1:8000/", {
+    const response = await fetch("http://localhost:8000/users", {
         method: "GET",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json", 
+            "Access-Control-Allow-Origin": "*"
         }
     })
     const exampleHeader = response.headers.get('Content-Type');

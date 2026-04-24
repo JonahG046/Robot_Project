@@ -1,0 +1,69 @@
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    labels:
+      - "dev.orbstack.domains=robot.postgres.local"
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - db_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "PGPASSWORD=${POSTGRES_PASSWORD} pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    labels:
+      - "dev.orbstack.domains=robot.adminer.local"
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+
+
+
+
+
+# version: "3.9"
+
+# services:
+#   db:
+#     image: postgres:latest
+#     container_name: postgres
+#     restart: unless-stopped
+#     ports:
+#       - "${POSTGRES_PORT:-5432}:5432"
+#     environment:
+#       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+#     volumes:
+#       - db_data:/var/lib/postgresql
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U postgres"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+#       start_period: 30s
+
+#   adminer:
+#     image: adminer:latest
+#     container_name: adminer
+#     restart: unless-stopped
+#     ports:
+#       - "8080:8080"
+#     depends_on:
+#       - db
+
+# volumes:
+#   db_data:

@@ -1,0 +1,7 @@
+
+
+
+.primary-color {
+     /* background-color: rgb(119, 7, 224); */
+        background-color: var(--main-brand-color);
+}

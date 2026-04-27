@@ -29,15 +29,15 @@ PostgreSQL
 **Infrastructure**:
 AWS Lambda
 
-**Hardware**
+**Hardware**:
 
 
 
 ## Getting Set Up
 
-**Dependencies**
+### Dependencies
 %% like all of them idrk, its a work in progress %%
 
 
-## Installation
+### Installation
 %% how to get The Project to work for dummies %%

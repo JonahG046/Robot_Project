@@ -16,7 +16,8 @@ Rather than use a conventional messaging software, our director proposed that we
 
 ## The Tech Stack
 
-%%% Work In Progress, will be edited to be more accurate %%
+%% Work In Progress, will be edited to be more accurate %%
+
 **Frontend**:
 React, Vite
 
@@ -29,15 +30,18 @@ PostgreSQL
 **Infrastructure**:
 AWS Lambda
 
-**Hardware**:
-
-
 
 ## Getting Set Up
 
 ### Dependencies
-%% like all of them idrk, its a work in progress %%
+Make sure you already have this software installed on your local machine before you continue
 
+- an IDE (We reccomend Visual Studio Code, found [here](https://code.visualstudio.com/download))
+- Python (install [here](https://www.python.org/))
+- Node.js (install [here](https://nodejs.org/en))
 
 ### Installation
 %% how to get The Project to work for dummies %%
+
+%% insert installation scripts here %%
+
